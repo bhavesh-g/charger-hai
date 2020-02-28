@@ -1,12 +1,41 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title></title>
+  <title>Your Battery</title>
+<script>
+document.onkeydown = function(e) {
+  if(event.keyCode == 123) {
+     return false;
+  }
+  if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
+     return false;
+  }
+  if(e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) {
+     return false;
+  }
+  if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
+     return false;
+  }
+  if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
+     return false;
+  }
+}
+</script>
+<style>
+.x{
+    width:300px;
+    height:200px;
+    position:absolute;
+    left:50%;
+    top:50%;
+    margin:-100px 0 0 -150px;
+}
+</style>
 </head>
-<body>
-  <div>
+<body oncontextmenu="return false;">
+  <div class="x">
   <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-width="24" height="24"
+width="48" height="48"
 viewBox="0 0 172 172"
 style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill="#666666"><path d="M93.16667,28.66667v14.33333h14.33333h7.16667v100.33333h-57.33333v-100.33333h7.16667h14.33333v-14.33333h14.33333M107.5,14.33333h-43v14.33333h-7.16667c-7.88333,0 -14.33333,6.45 -14.33333,14.33333v100.33333c0,7.88333 6.45,14.33333 14.33333,14.33333h57.33333c7.88333,0 14.33333,-6.45 14.33333,-14.33333v-100.33333c0,-7.88333 -6.45,-14.33333 -14.33333,-14.33333h-7.16667v-14.33333z"></path></g></g></svg> <span style="background-color: ivory;font-size: x-large;" id="batteryprcnt"></span>
 </div>
