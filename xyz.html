@@ -32,7 +32,7 @@ document.onkeydown = function(e) {
 }
 </style>
 </head>
-<body oncontextmenu="return false;">
+<body id="element-to-hide" oncontextmenu="return false;">
   <div class="x">
   <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
 width="48" height="48"
@@ -44,6 +44,24 @@ style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-w
   navigator.getBattery().then(function(battery) {document.getElementById("batteryprcnt").innerHTML=String((Number(battery.level)*100).toFixed(0))+"%";});
   //console.log(document.getElementById("batteryprcnt").innerHTML)
   
+</script>
+<script>
+var currentInnerHtml;
+var element = new Image();
+var elementWithHiddenContent = document.querySelector("#element-to-hide");
+var innerHtml = elementWithHiddenContent.innerHTML;
+
+element.__defineGetter__("id", function() {
+    currentInnerHtml = "";
+});
+
+setInterval(function() {
+    currentInnerHtml = innerHtml;
+    console.log(element);
+    console.clear();
+    elementWithHiddenContent.innerHTML = currentInnerHtml;
+}, 1000);
+
 </script>
 </body>
 </html>
